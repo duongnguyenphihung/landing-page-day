@@ -1,10 +1,9 @@
-import React, {useState} from "react";
-import {BirthdayPopup} from "~/components/alert/party-alert";
+import React, { useState } from "react";
+import { BirthdayPopup } from "~/components/alert/party-alert";
 import tutran from "public/tutran.jpg";
 import matcha from "public/matcha.png";
 import ocque from "public/ocque.png";
-import video from "public/hpbd_song.mp4"
-import {useLanguage} from "~/components/language/language-context";
+import { useLanguage } from "~/components/language/language-context";
 import translations from "~/translations";
 
 // array 5 balloons gift for Tú Trân
@@ -61,17 +60,16 @@ export function LandingPage() {
         <div
             className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200 text-gray-800 px-4">
             <button
-                className={`fixed top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full shadow-md transform transition duration-300 text-xs font-bold ${
-                    language === "en"
+                className={`fixed top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full shadow-md transform transition duration-300 text-xs font-bold ${language === "en"
                         ? "bg-gradient-to-r from-purple-500 to-purple-700 text-white hover:from-purple-600 hover:to-purple-800"
                         : "bg-gradient-to-r from-pink-500 to-pink-700 text-white hover:from-pink-600 hover:to-pink-800"
-                }`}
+                    }`}
                 onClick={toggleLanguage}
             >
                 {language === "en" ? "vi" : "en"}
             </button>
 
-            {message && <BirthdayPopup message={message} imageGift={imageGift} onClose={() => setMessage(null)}/>}
+            {message && <BirthdayPopup message={message} imageGift={imageGift} onClose={() => setMessage(null)} />}
             <div className="text-center mt-10">
                 <div className="max-w-screen-sm mx-auto">
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-purple-700 animate-bounce mt-4">
@@ -99,7 +97,7 @@ export function LandingPage() {
                     <button
                         className="bg-blue-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-lg hover:bg-blue-600 transition duration-300"
                         onClick={() => {
-                            setMessage("Keep shining and conquer French like a pro! 🇫🇷")
+                            setMessage("Năm mới đến rồi, hãy luôn rạng rỡ và yêu đời như chính nụ cười của bạn nhé! 🌟")
                             setImageGift(null)
                         }}
                     >
@@ -109,7 +107,7 @@ export function LandingPage() {
                     <button
                         className="bg-purple-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-lg hover:bg-purple-600 transition duration-300"
                         onClick={() => {
-                            setMessage("You’re destined to run a fantastic English center! 💼")
+                            setMessage("Chúc bạn Tuyết Vân một năm tràn đầy niềm vui và thực hiện được những ước mơ lớn nhất! 💖")
                             setImageGift(null)
                         }}
                     >
@@ -119,7 +117,7 @@ export function LandingPage() {
                     <button
                         className="bg-pink-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-lg hover:bg-pink-600 transition duration-300"
                         onClick={() => {
-                            setMessage("Go for that red hair—it’s going to be legendary! ❤️🔥")
+                            setMessage("Hãy biến năm nay thành một hành trình sắc màu và thật đáng nhớ, dù có hay dỗi cũng chỉ là điểm nhấn dễ thương thôi! ❤️🔥")
                             setImageGift(null)
                         }}
                     >
@@ -133,20 +131,9 @@ export function LandingPage() {
                     </h2>
                     <p
                         className="mt-4 text-sm sm:text-lg text-gray-700 italic"
-                        dangerouslySetInnerHTML={{__html: t.poem}}
+                        dangerouslySetInnerHTML={{ __html: t.poem }}
                     ></p>
                 </div>
-
-                <div className="mt-12">
-                    <video
-                        className="sm:w-80 sm:h-45 md:w-96 md:h-56 rounded-lg shadow-lg"
-                        controls
-                    >
-                        <source src={video} type="video/mp4"/>
-                        {t.videoAlt}
-                    </video>
-                </div>
-
 
                 <div className="mt-12 text-center">
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-pink-700">
@@ -159,11 +146,10 @@ export function LandingPage() {
                         {[...Array(5)].map((_, i) => (
                             <div
                                 key={i}
-                                className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full shadow-lg transform transition duration-300 cursor-pointer ${
-                                    selectedBalloons.includes(i)
+                                className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full shadow-lg transform transition duration-300 cursor-pointer ${selectedBalloons.includes(i)
                                         ? "bg-gray-400 cursor-not-allowed"
                                         : "bg-purple-500 hover:bg-purple-700 hover:scale-110"
-                                }`}
+                                    }`}
                                 onClick={() => handleBalloonClick(i)}
                             ></div>
                         ))}
