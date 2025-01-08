@@ -15,7 +15,7 @@ export const BirthdayPopup: React.FC<{ message: string, onClose: () => void, ima
     }, []);
 
     const handleOverlayClick = (e: React.MouseEvent) => {
-        if (e.target === e.currentTarget) onClose();
+        if (e.target === e.currentTarget) onClose(); 
     };
 
     return (
