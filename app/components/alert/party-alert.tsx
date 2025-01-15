@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import video from "public/tpbirthday.mp4"
 
 export const BirthdayPopup: React.FC<{ 
     message: string, 
@@ -29,14 +28,14 @@ export const BirthdayPopup: React.FC<{
         >
             <div
                 className="bg-white rounded-xl shadow-lg max-w-md w-11/12 p-4 md:p-6 text-center transform transition-transform duration-300 scale-0 animate-popup">
-                <h2 className="text-2xl md:text-3xl font-bold text-pink-600 mb-4">🎉 Happy Birthday 2! 🎂</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-pink-600 mb-4">🎉 Happy Birthday! 🎂</h2>
                 <p className="text-base md:text-lg text-gray-700 mb-4 md:mb-6">
-                    {message} 🎁✨
+                    {message}
                 </p>
                 {
                     videoGift && (
                         <video 
-                            src={video} 
+                            src={videoGift} 
                             autoPlay 
                             loop 
                             muted 
