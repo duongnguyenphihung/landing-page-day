@@ -1,11 +1,15 @@
-import React, {useEffect} from "react";
-import ocque from "public/ocque.png";
+import React, { useEffect } from "react";
+import video from "public/tpbirthday.mp4"
 
-export const BirthdayPopup: React.FC<{ message: string, onClose: () => void, imageGift?: any }> = ({
-                                                                                                       message,
-                                                                                                       onClose,
-                                                                                                       imageGift
-                                                                                                   }) => {
+export const BirthdayPopup: React.FC<{ 
+    message: string, 
+    onClose: () => void, 
+    videoGift?: string 
+}> = ({ 
+    message, 
+    onClose, 
+    videoGift =null
+}) => {
 
     useEffect(() => {
         document.body.style.overflow = "hidden";
@@ -25,18 +29,21 @@ export const BirthdayPopup: React.FC<{ message: string, onClose: () => void, ima
         >
             <div
                 className="bg-white rounded-xl shadow-lg max-w-md w-11/12 p-4 md:p-6 text-center transform transition-transform duration-300 scale-0 animate-popup">
-                <h2 className="text-2xl md:text-3xl font-bold text-pink-600 mb-4">🎉 Happy Birthday! 🎂</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-pink-600 mb-4">🎉 Happy Birthday 2! 🎂</h2>
                 <p className="text-base md:text-lg text-gray-700 mb-4 md:mb-6">
                     {message} 🎁✨
                 </p>
                 {
-                    imageGift && <img
-                        src={imageGift}
-                        alt="Birthday Gift"
-                        className="rounded-lg shadow-md mx-auto mb-4 md:mb-6 w-full max-w-sm"
-                    />
+                    videoGift && (
+                        <video 
+                            src={video} 
+                            autoPlay 
+                            loop 
+                            muted 
+                            className="rounded-lg shadow-md mx-auto mb-4 md:mb-6 w-full max-w-sm max-h-[80vh] object-contain"
+                        />
+                    )
                 }
-
             </div>
 
             <style jsx>{`
@@ -58,4 +65,3 @@ export const BirthdayPopup: React.FC<{ message: string, onClose: () => void, ima
         </div>
     );
 };
-
