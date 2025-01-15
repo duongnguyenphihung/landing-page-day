@@ -15,11 +15,23 @@ services:
     container_name: nginx
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
     ports:
       - '80:80'
     networks:
       - my_network
-
+  
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    command: certonly --webroot -w /var/www/certbot --force-renewal --email manhthanh147@gmail.com -d chuc-mung-sinh-nhat-thu-phuong.site --agree-tos
+    networks:
+      - my_network
+      
 networks:
   my_network:
     driver: bridge
